@@ -1,0 +1,4 @@
+<% @todolists.each do |todolist| %>
+<p> <%= link_to todolist.title, todoitem_path(todolist) %></p>
+<% end %>
+<p> <%= link_to 'Новый список дел', todolists_new_path %></p>

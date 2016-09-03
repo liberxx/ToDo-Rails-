@@ -1,0 +1,11 @@
+<%= form_for(@list) do |f| %>
+
+    <div>
+      <%= f.label "Название"%><br>
+      <%= f.text_field :title %>
+
+    </div>
+    <div>
+      <%= f.submit "Создать список" %>
+    </div>
+<% end %>
