@@ -1,4 +1,6 @@
 <% @todolists.each do |todolist| %>
-<p> <%= link_to todolist.title, todoitem_path(todolist) %></p>
+<p> <%= link_to todolist.title, todolist_path(todolist) %></p>
+<p><%= link_to 'Удалить', todolist_path(todolist), method: :delete, data: { confirm: "Вы уверены?" } %></p>
+<p><%= link_to 'Редактировать', edit_todolist_path(todolist) %></p>
 <% end %>
-<p> <%= link_to 'Новый список дел', todolists_new_path %></p>
+<p> <%= link_to 'Новый список дел', new_todolist_path %></p>

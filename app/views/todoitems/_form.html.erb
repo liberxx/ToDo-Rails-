@@ -1,0 +1,13 @@
+<%= form_for(@item) do |f| %>
+
+    <div>
+      <%= f.label "Шаг"%><br>
+      <%= f.text_field :step %>
+      <%= f.label "Описание"%><br>
+      <%= f.text_field :description %>
+
+    </div>
+    <div>
+      <%= f.submit "Создать действие" %>
+    </div>
+<% end %>

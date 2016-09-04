@@ -18,6 +18,22 @@ class TodolistsController < ApplicationController
     redirect_to todolists_path
   end
 
+  def destroy
+    @list = Todolist.find(params[:id])
+    @list.destroy
+    redirect_to todolists_path
+  end
+
+  def edit
+    @list = Todolist.find(params[:id])
+  end
+
+  def update
+    @list = Todolist.find(params[:id])
+    @list.update(todolist_params)
+    redirect_to todolists_path
+  end
+
 
   private
 
