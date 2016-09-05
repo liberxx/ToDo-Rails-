@@ -1,13 +1,4 @@
-<%= form_for(@item) do |f| %>
-
-    <div>
-      <%= f.label "Шаг"%><br>
-      <%= f.text_field :step %>
-      <%= f.label "Описание"%><br>
-      <%= f.text_field :description %>
-
-    </div>
-    <div>
-      <%= f.submit "Создать действие" %>
-    </div>
+<%= form_for([@list, @list.todoitems.build]) do |f| %>
+    <%= f.text_field :description, placeholder: "Новая задача" %>
+    <%= f.submit "Создать задачу" %>
 <% end %>

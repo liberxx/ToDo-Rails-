@@ -1,24 +1,40 @@
 class TodoitemsController < ApplicationController
+  before_action :set_todolist
+  before_action :set_todoitem,  except: [:create]
   def edit
 
   end
 
-  def new
-    #@list = Todolist.find(params[:id])
-   # @todo_item = @list.id
-    @item = Todoitem.new
+  def show
+
+  end
+
+  def update
+
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to todolist_path
   end
 
   def create
-    @item = Todoitem.new(todoitem_params)
-    @item.save
-    redirect_to todolists_path
+    @item = @list.todoitems.create(todoitem_params)
+    redirect_to @list
   end
 
   private
 
+  def set_todoitem
+    @item = @list.todoitems.find(params[:id])
+  end
+
+  def set_todolist
+    @list = Todolist.find(params[:todolist_id])
+  end
+
   def todoitem_params
-    params.require(:todoitem).permit(:step, :description, :todolist_id)
+    params.require(:todoitem).permit(:step, :description)
   end
 
 end

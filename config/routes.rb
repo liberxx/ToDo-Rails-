@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
 
   root 'todolists#index'
-  #get 'todolists' => 'todolists#index'
-  #get 'todolists/:id' => 'todolists#show'
-  #get 'todolists/new' => 'todolists#new'
-  #post 'todolists' => 'todolists#create'
-  #delete 'todolists/:id' => 'todolists#destroy'
-  resources :todolists, :todoitems
+  resources :todolists do
+    resources :todoitems
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
