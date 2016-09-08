@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root 'todolists#index'
   resources :todolists do
     resources :todoitems do
