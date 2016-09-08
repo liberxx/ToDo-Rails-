@@ -1,11 +1,10 @@
 <%= form_for(@list) do |f| %>
 
     <div>
-      <%= f.label "Название"%><br>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, placeholder: "Новый список дел", class: "form" %>
 
     </div>
     <div>
-      <%= f.submit "Создать список" %>
+      <%= f.submit "Создать список", class: "btn btn-lg btn-primary" %>
     </div>
 <% end %>

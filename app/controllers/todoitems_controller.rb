@@ -15,11 +15,16 @@ class TodoitemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to todolist_path
+    redirect_to @list
   end
 
   def create
     @item = @list.todoitems.create(todoitem_params)
+    redirect_to @list
+  end
+
+  def complete
+    @item.update_attribute(:completed_at, Time.now)
     redirect_to @list
   end
 

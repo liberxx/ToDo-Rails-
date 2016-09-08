@@ -1,6 +1,12 @@
+<div id="index">
 <% @todolists.each do |todolist| %>
-<p> <%= link_to todolist.title, todolist_path(todolist) %></p>
-<p><%= link_to 'Удалить', todolist_path(todolist), method: :delete, data: { confirm: "Вы уверены?" } %></p>
-<p><%= link_to 'Редактировать', edit_todolist_path(todolist) %></p>
+<h3><%= link_to todolist.title, todolist_path(todolist) %>
+<%= link_to 'Редактировать', edit_todolist_path(todolist),  class: "btn btn-warning" %>
+<%= link_to 'Удалить', todolist_path(todolist), method: :delete, data: { confirm: "Вы уверены?" }, class: "btn btn-danger" %>
+</h3>
 <% end %>
-<p> <%= link_to 'Новый список дел', new_todolist_path %></p>
+</div>
+
+<div id="new_list">
+<%= link_to 'Новый список', new_todolist_path, class: "btn btn-lg btn-primary" %>
+</div>

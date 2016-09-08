@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   root 'todolists#index'
   resources :todolists do
-    resources :todoitems
+    resources :todoitems do
+      member do
+        patch :complete
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,4 +1,4 @@
 <%= form_for([@list, @list.todoitems.build]) do |f| %>
-    <%= f.text_field :description, placeholder: "Новая задача" %>
-    <%= f.submit "Создать задачу" %>
+    <%= f.text_field :description, placeholder: "Новая задача", class: "form" %>
+    <%= f.submit "Создать задачу", class: "btn btn-lg btn-primary" %>
 <% end %>
