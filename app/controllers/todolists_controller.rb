@@ -11,12 +11,10 @@ class TodolistsController < ApplicationController
   end
 
   def new
-    #@list = Todolist.new
     @list = current_user.todolists.build
   end
 
   def create
-   # @list = Todolist.new(todolist_params)
     @list = current_user.todolists.build(todolist_params)
     @list.save
     redirect_to todolists_path

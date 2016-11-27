@@ -39,7 +39,7 @@ class TodoitemsController < ApplicationController
   end
 
   def todoitem_params
-    params.require(:todoitem).permit(:step, :description)
+    params.require(:todoitem).permit(:description)
   end
 
 end

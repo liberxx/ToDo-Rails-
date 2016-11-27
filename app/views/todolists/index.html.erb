@@ -1,15 +1,15 @@
-<div id="index">
+<div class="index">
+  <h1>Списки дел</h1>
 <% @todolists.each do |todolist| %>
 <% if todolist.user == current_user %>
-<h3><%= link_to todolist.title, todolist_path(todolist) %>
-<%= link_to 'Редактировать', edit_todolist_path(todolist),  class: "btn btn-warning" %>
-<%= link_to 'Удалить', todolist_path(todolist), method: :delete, data: { confirm: "Вы уверены?" }, class: "btn btn-danger" %>
-</h3>
+<div class="todo_list">
+<h3><%= link_to todolist.title, todolist_path(todolist) %></h3>
+<!--<%#= link_to 'Редактировать', edit_todolist_path(todolist),  class: "btn btn-warning" %>-->
+<div class="todolist_del"><%= link_to 'X', todolist_path(todolist), method: :delete, data: { confirm: "Вы уверены?" }%></div>
+</div>
 <% end %>
 <% end %>
+  <br>
+  <%= link_to 'Новый список', new_todolist_path, class: "btn btn-lg btn-primary" %>
 </div>
 
-
-<div id="new_list">
-<%= link_to 'Новый список', new_todolist_path, class: "btn btn-lg btn-primary" %>
-</div>

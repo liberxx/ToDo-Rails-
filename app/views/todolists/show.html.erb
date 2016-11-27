@@ -1,22 +1,26 @@
-<div id="index">
-<div>
+<div class="index">
+  <h1>Задачи</h1>
 <% @items.each do |item| %>
-<h3>
+<div class="todo_list">
 <% if item.completed_at.nil?  %>
-<%= item.step %> <%=item.description %>
+ <%=item.description %>
 <% else %>
-    <del><%= item.step %> <%=item.description %></del>
+    <del><%=item.description %></del>
 <% end %>
-<%= link_to "Завершить", complete_todolist_todoitem_path(@list,item.id), method: :patch, class: "btn btn-success" %>
-<%= link_to "Удалить задачу", todolist_todoitem_path(@list, item.id), method: :delete, data: { confirm: "Вы уверены?"}, class: "btn btn-danger" %>
-</h3>
+<div class ="set_items">
+<div class="todolist_success"><%= link_to "+", complete_todolist_todoitem_path(@list,item.id), method: :patch %></div>
+  <div class="todolist_del"><%= link_to 'X', todolist_todoitem_path(@list, item.id), method: :delete, data: { confirm: "Вы уверены?" }%></div>
+  </div>
+      </div>
+      <br>
 <% end %>
-</div>
+
 
 
 <div>
   <%=render "todoitems/form" %>
 </div>
-
-<%= link_to "Назад", root_path, class: "btn btn-default"  %>
+  <%= link_to "Назад", root_path, class: "btn btn-default"  %>
 </div>
+
+
